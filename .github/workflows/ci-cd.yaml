@@ -3,8 +3,7 @@ name: CI/CD TaskFlow
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - "app/**"
+    
 
 jobs:
   build-scan-push:
@@ -39,7 +38,7 @@ jobs:
           docker build -t ghcr.io/${{ github.repository_owner }}/taskflow-api:${{ github.sha }} ./app
 
       - name: Scan image with Trivy (DevSecOps)
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: ghcr.io/${{ github.repository_owner }}/taskflow-api:${{ github.sha }}
           format: 'table'
