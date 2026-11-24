@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: taskflow-api:v1
+          image: ghcr.io/youssou123/taskflow-api:067ff3bf16a9569486a6b230483c6ac01ae5e837
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
