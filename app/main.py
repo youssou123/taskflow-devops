@@ -26,3 +26,4 @@ def list_tasks():
 def create_task(task: Task):
     tasks_db.append(task.model_dump())
     return task
+# test gitops rollout
