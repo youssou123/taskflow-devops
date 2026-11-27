@@ -6,7 +6,10 @@ RUN pip install --user --no-cache-dir -r requirements.txt
 
 # Étape 2 : Runtime (image finale légère)
 FROM python:3.12-slim
-RUN useradd -m appuser
+RUN apt-get update \
+    && apt-get upgrade -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/* \
+    && useradd -m appuser
 WORKDIR /app
 
 # On copie uniquement les paquets installés depuis l'étape 1
